@@ -38,10 +38,23 @@
         <!-- Template Main CSS File -->
         <link href="assets/css/style.css" rel="stylesheet">
 
+        <script>
+            function counter() {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "https://api.countapi.xyz/hit/hank0101.github.io.sampson/key");
+                xhr.responseType = "json";
+                xhr.onload = function () {
+                    document.getElementById('visits').innerText = this.response.value;
+                }
+                xhr.send();
+            }
+
+        </script>
+
 
     </head>
 
-    <body>
+    <body onload="counter()">
 
         <!-- ======= Mobile nav toggle button ======= -->
         <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
@@ -354,6 +367,8 @@
                                     <h4>Email:</h4>
                                     <p>sampsonkuo@gmail.com</p>
                                 </div>
+
+                                <div id="visits">...</div>
 
                             </div>
 
